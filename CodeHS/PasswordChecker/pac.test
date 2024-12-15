@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+class Password {
+  public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
+    try {
+      System.out.println("Enter your password: ");
+      String check = input.nextLine();
+      System.out.println(passwordCheck(check));
+    } finally {
+      input.close();
+    }
+  }
+  
+  static boolean passwordCheck(String password) {
+    int s = password.length();
+    if (password.length() < 8) {
+      return false;
+    } for (int i = 0; i < s; i++) {
+      if (!Character.isLetterOrDigit(password.charAt(i))) {
+        return false;
+      }
+    }
+    return true;
+  }
+}
